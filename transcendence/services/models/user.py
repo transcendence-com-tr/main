@@ -16,7 +16,7 @@ class User(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     is_active = models.BooleanField(default=True)
     is_authenticated = models.BooleanField(default=False)
-
+    last_activity = models.DateTimeField(auto_now=True)
 
     class Meta:
         db_table = 'user'

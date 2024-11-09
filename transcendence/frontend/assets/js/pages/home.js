@@ -14,7 +14,15 @@
             modeCards.forEach(card => {
                 card.style.display = 'none';
             });
+            if (activeIndex > 0)
+                modeCards[activeIndex - 1].style.display = 'block';
             modeCards[activeIndex].style.display = 'block';
+            if (activeIndex < modeCards.length - 1)
+                modeCards[activeIndex + 1].style.display = 'block';
+            if (activeIndex === 0)
+                modeCards[activeIndex + 2].style.display = 'block';
+            if (activeIndex === modeCards.length - 1)
+                modeCards[activeIndex - 2].style.display = 'block';
         }
     }
 
@@ -22,8 +30,6 @@
         if (activeIndex > 0)
         {
             activeIndex--;
-            //translateX += modeCards[0].clientWidth;
-            //gameModes.style.transform = `translateX(${translateX}px)`;
             gameModes.style.transition = 'transform 0.3s ease';
             updateActiveCard();
         }
@@ -32,8 +38,6 @@
     document.querySelector('.game-modes .fa-chevron-right').parentElement.addEventListener('click', () => {
         if (activeIndex < modeCards.length - 1) {
             activeIndex++;
-            //translateX -= modeCards[0].clientWidth;
-            //gameModes.style.transform = `translateX(${translateX}px)`;
             gameModes.style.transition = 'transform 0.3s ease';
             updateActiveCard();
         }

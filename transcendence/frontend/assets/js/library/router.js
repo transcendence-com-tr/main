@@ -55,7 +55,7 @@ var Router = {
 
                 let css = document.createElement("link");
                 css.rel = "stylesheet";
-                css.href = "assets/css/" + template.split(".")[0] + ".css?v=460";
+                css.href = "assets/css/" + template.split(".")[0] + ".css?v=470";
                 css.id = "css";
                 css.onerror = function() {
                     console.warn('CSS file not found for template:', template);
@@ -93,7 +93,7 @@ var Router = {
 
                 const script = document.createElement("script");
                 script.id = "js";
-                script.src = "assets/js/" + template.split(".")[0] + ".js?v=460";
+                script.src = "assets/js/" + template.split(".")[0] + ".js?v=470";
                 script.defer = true;
 
                 script.onload = function() {
@@ -117,7 +117,7 @@ var Router = {
 
                 const mainScript = document.createElement("script");
                 mainScript.id = "mainJS";
-                mainScript.src = "assets/js/main.js?v=460";
+                mainScript.src = "assets/js/main.js?v=470";
                 mainScript.defer = true;
                 mainScript.onload = function() {
                     console.log('JS main file loaded successfully:', mainScript.src);
