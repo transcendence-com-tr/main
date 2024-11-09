@@ -1,0 +1,287 @@
+<div class="d-flex" id="game-content">
+    <div>
+        <div class="sidebar neon">
+            <div class="logo">
+                P N G<br>P N G
+            </div>
+            <nav class="nav flex-column align-items-center" id="defaultNav">
+                <a class="nav-link active" href="#/home">
+                    <i class="fas fa-home"></i>
+                </a>
+                <a class="nav-link" href="#/game">
+                    <i class="fas fa-gamepad"></i>
+                </a>
+                <a class="nav-link" href="#/profile">
+                    <i class="fas fa-user"></i>
+                </a>
+                <a class="nav-link" href="#/chat">
+                    <i class="fas fa-comment"></i>
+                </a>
+                <a class="nav-link" href="#/leaderboard">
+                    <i class="fas fa-trophy"></i>
+                </a>
+                <a class="nav-link" href="#/settings">
+                    <i class="fas fa-cog"></i>
+                </a>
+                <a class="nav-link logout-mobile d-none" href="#/logout">
+                    <i class="fas fa-sign-out-alt"></i>
+                </a>
+            </nav>
+            <nav class="nav flex-column align-items-center">
+                <hr>
+                <a class="nav-link logout" href="#/logout">
+                    <i class="fas fa-sign-out-alt"></i>
+                </a>
+            </nav>
+        </div>
+    </div>
+    <div class="content flex-grow-1 ms-4">
+        <div class="row w-100">
+            <div class="col-12 d-flex align-items-center">
+                <div class="col-8">
+                    <div class="input-group neon">
+                        <input type="text" name="search" class="form-control" placeholder="Search User">
+                        <span class="input-group-text">
+                            <i class="fas fa-search"></i>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-4 text-end">
+                    <button type="button" name="notification" class="btn neon {% if new_notify %}neon-animate{% endif %}">
+                        <i class="fas fa-bell"></i>
+                        {% if new_notify %}
+                            <span class="position-absolute top-0 start-100 translate-middle p-1 bg-success border border-light rounded-circle">
+                                <span class="visually-hidden">New alerts</span>
+                            </span>
+                        {% endif %}
+                    </button>
+                </div>
+            </div>
+            <div class="col-12 mb-3">
+                <div class="w-100 position-relative">
+                    <div class="game-card neon position-absolute w-100 components" component="search" style="display: none; border-top-left-radius: 0; border-top-right-radius: 0; z-index: 999999;">
+                    </div>
+                </div>
+                <div class="w-100 position-relative">
+                    <div class="game-card neon position-absolute w-100 components" component="notification" style="display: none; border-top-left-radius: 0px; border-top-right-radius: 0px; z-index: 999999;"></div>
+                </div>
+            </div>
+            <div class="col-12 col-md-12 col-lg-7 col-xl-8">
+                <div class="game-card row neon align-items-center mb-3" id="quick-play">
+                    <div class="col-12 col-lg-8 col-xl-7">
+                        <h1 class="text-color-red" style="font-size: 32px">Hello! {{ user.username }}.</h1>
+                        <p style="font-size: 18px">Ready for a gaming surprise? Click 'Play' to start a random game and see what awaits.</p>
+                    </div>
+                    <div class="col">
+                        <button class="btn neon w-100" onclick="quickPlay()">Play</button>
+                    </div>
+                </div>
+                <h5 class="text-color-orange">Games mode</h5>
+                <div class="game-modes d-flex mb-4 align-items-center justify-content-center">
+                    <a class="me-2 btn neon" style="z-index: 999">
+                        <i class="fas fa-chevron-left"></i>
+                    </a>
+                    <div class="modes d-flex">
+                        <div class="game-card neon mode-card">
+                            <h6>Classic</h6>
+                            <p>Experience the original gameplay.</p>
+                            <button class="btn btn-sm neon" onclick="startMode('classic')">Play now</button>
+                        </div>
+                        <div class="game-card neon neon-blue-force mode-card active ms-2 me-2">
+                            <h6>AI Mode</h6>
+                            <p>Challenge our advanced AI.</p>
+                            <button class="btn btn-sm neon" onclick="startMode('ai')">Play now</button>
+                        </div>
+                        <div class="game-card neon mode-card">
+                            <h6>Friends Mode</h6>
+                            <p>Play with your friends online.</p>
+                            <button class="btn btn-sm neon" onclick="startMode('friends')">Play now</button>
+                        </div>
+                    </div>
+                    <a class="ms-2 btn neon" style="z-index: 999">
+                        <i class="fas fa-chevron-right"></i>
+                    </a>
+                </div>
+                <h5 class="text-color-orange">Best Players</h5>
+                <div class="game-card neon best-players row mb-4">
+                    <div class="col-12 w-100 mb-2">
+                        <div class="col-12 d-flex justify-content-between w-100 text-color-gray">
+                            <p class="d-none d-md-block">#</p>
+                            <p>PLAYER</p>
+                            <p class="d-none d-md-block">POINT</p>
+                            <p>Level</p>
+                        </div>
+                    </div>
+
+                    <div class="col mb-2 align-items-center text-center">
+                        <div class="player game-card neon">
+                            <div class="p-1 d-none d-md-block">
+                                <img src="https://static.vecteezy.com/system/resources/thumbnails/015/153/253/small_2x/ranking-badges-png.png" alt="Player 1" height="50">
+                            </div>
+                            <div class="center p-1">
+                                <img class="me-2 object-fit-cover" src="{{ user.image }}" alt="Player 1" height="50" width="50" style="border-radius: 3rem">
+                                <p class="m-0">{{ user.username }}</p>
+                            </div>
+                            <div class="p-1 d-none d-md-block">
+                                <p class="m-0">2440PTS</p>
+                            </div>
+                            <div class="p-1">
+                                <p class="m-0">9.2</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col mb-2 align-items-center text-center">
+                        <div class="player game-card neon">
+                            <div class="p-1 d-none d-md-block">
+                                <img src="https://static.vecteezy.com/system/resources/thumbnails/015/153/253/small_2x/ranking-badges-png.png" alt="Player 1" height="50">
+                            </div>
+                            <div class="center p-1">
+                                <img class="me-2 object-fit-cover" src="{{ user.image }}" alt="Player 1" height="50" width="50" style="border-radius: 3rem">
+                                <p class="m-0">{{ user.username }}</p>
+                            </div>
+                            <div class="p-1 d-none d-md-block">
+                                <p class="m-0">2440PTS</p>
+                            </div>
+                            <div class="p-1">
+                                <p class="m-0">9.2</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col mb-2 align-items-center text-center">
+                        <div class="player game-card neon">
+                            <div class="p-1 d-none d-md-block">
+                                <img src="https://static.vecteezy.com/system/resources/thumbnails/015/153/253/small_2x/ranking-badges-png.png" alt="Player 1" height="50">
+                            </div>
+                            <div class="center p-1">
+                                <img class="me-2 object-fit-cover" src="{{ user.image }}" alt="Player 1" height="50" width="50" style="border-radius: 3rem">
+                                <p class="m-0">{{ user.username }}</p>
+                            </div>
+                            <div class="p-1 d-none d-md-block">
+                                <p class="m-0">2440PTS</p>
+                            </div>
+                            <div class="p-1">
+                                <p class="m-0">9.2</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col mb-2 align-items-center text-center">
+                        <div class="player game-card neon">
+                            <div class="p-1 d-none d-md-block">
+                                <img src="https://static.vecteezy.com/system/resources/thumbnails/015/153/253/small_2x/ranking-badges-png.png" alt="Player 1" height="50">
+                            </div>
+                            <div class="center p-1">
+                                <img class="me-2 object-fit-cover" src="{{ user.image }}" alt="Player 1" height="50" width="50" style="border-radius: 3rem">
+                                <p class="m-0">{{ user.username }}</p>
+                            </div>
+                            <div class="p-1 d-none d-md-block">
+                                <p class="m-0">2440PTS</p>
+                            </div>
+                            <div class="p-1">
+                                <p class="m-0">9.2</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col mb-2 align-items-center text-center">
+                        <div class="player game-card neon">
+                            <div class="p-1 d-none d-md-block">
+                                <img src="https://static.vecteezy.com/system/resources/thumbnails/015/153/253/small_2x/ranking-badges-png.png" alt="Player 1" height="50">
+                            </div>
+                            <div class="center p-1">
+                                <img class="me-2 object-fit-cover" src="{{ user.image }}" alt="Player 1" height="50" width="50" style="border-radius: 3rem">
+                                <p class="m-0">{{ user.username }}</p>
+                            </div>
+                            <div class="p-1 d-none d-md-block">
+                                <p class="m-0">2440PTS</p>
+                            </div>
+                            <div class="p-1">
+                                <p class="m-0">9.2</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col mb-2 align-items-center text-center">
+                        <div class="player game-card neon">
+                            <div class="p-1 d-none d-md-block">
+                                <img src="https://static.vecteezy.com/system/resources/thumbnails/015/153/253/small_2x/ranking-badges-png.png" alt="Player 1" height="50">
+                            </div>
+                            <div class="center p-1">
+                                <img class="me-2 object-fit-cover" src="{{ user.image }}" alt="Player 1" height="50" width="50" style="border-radius: 3rem">
+                                <p class="m-0">{{ user.username }}</p>
+                            </div>
+                            <div class="p-1 d-none d-md-block">
+                                <p class="m-0">2440PTS</p>
+                            </div>
+                            <div class="p-1">
+                                <p class="m-0">9.2</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-12 col-lg-5 col-xl-4 mb-4">
+                <h5 class="text-color-orange">My Profile</h5>
+                <div class="profile-card game-card neon p-3 mb-4">
+                    <div class="profile-info d-flex justify-content-around m-1">
+                        <div>
+                            <div class="d-flex">
+                                <img src="{{ user.image }}" alt="Player 1" class="object-fit-cover" style="margin-right: 25px; border-radius: 3rem" height="80" width="80">
+                                <div>
+                                    <p class="mb-0">{{ user.username }}.</p>
+                                    <p>Level 6.18</p>
+                                </div>
+                            </div>
+                        </div>
+                        <img src="https://static.vecteezy.com/system/resources/thumbnails/015/153/253/small_2x/ranking-badges-png.png" alt="Player 1" height="80">
+                    </div>
+                    <hr>
+                    <div class="profile-stats d-flex justify-content-around text-center">
+                        <div>
+                            <p>Last Game</p>
+                            <p>Won</p>
+                        </div>
+                        <div>
+                            <p>Status</p>
+                            <p class="text-color-blue">Online</p>
+                        </div>
+                        <div>
+                            <p>Progress</p>
+                            <p>+120 pts</p>
+                        </div>
+                    </div>
+                </div>
+                <h5 class="text-color-orange mt-2">Recent activity</h5>
+                <div class="activity-card game-card neon mt-2 p-3">
+                    <div class="player game-card neon mb-2 recently-activty">
+                            <div class="me-3">
+                                <img src="{{ user.image }}" alt="Player 1" height="50" width="50" class="object-fit-cover" style="border-radius: 3rem">
+                            </div>
+                            <p class="mb-0">
+                                <strong class="text-color-orange">{{ user.username }}</strong>
+                                won against <strong class="text-color-orange">akaniber</strong>
+                            </p>
+                        <p class="recently-activty-clock">27-10-2024 15:33</p>
+                    </div>
+                    <div class="player game-card neon mb-2 recently-activty">
+                        <div class="me-3">
+                            <img src="{{ user.image }}" alt="Player 1" height="50" width="50" class="object-fit-cover" style="border-radius: 3rem">
+                        </div>
+                        <p class="mb-0">
+                            <strong class="text-color-orange">{{ user.username }}</strong>
+                            won against <strong class="text-color-orange">akaniber</strong>
+                        </p>
+                        <p class="recently-activty-clock">27-10-2024 15:33</p>
+                    </div>
+                    <div class="player game-card neon mb-2 recently-activty">
+                        <div class="me-3">
+                            <img src="{{ user.image }}" alt="Player 1" height="50" width="50" class="object-fit-cover" style="border-radius: 3rem">
+                        </div>
+                        <p class="mb-0">
+                            <strong class="text-color-orange">{{ user.username }}</strong>
+                            won against <strong class="text-color-orange">akaniber</strong>
+                        </p>
+                        <p class="recently-activty-clock">27-10-2024 15:33</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

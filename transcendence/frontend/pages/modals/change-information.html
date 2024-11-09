@@ -1,0 +1,13 @@
+<p class="text-center">You can change your user information if you want.</p>
+<form action="auth" method="post">
+    <div class="input-group mb-3 neon">
+        <input type="text" name="email" class="form-control" placeholder="Email" />
+        <span class="input-group-text">
+            <i class="fas fa-envelope"></i>
+        </span>
+    </div>
+    <div class="col-12 mb-2">
+        <button type="submit" class="btn neon w-100 mb-2">Change</button>
+        <button type="button" onclick="notificationTemplate('Verify Your Account', '2fa', false)"  class="btn neon w-100">Verify Your Information</button>
+    </div>
+</form>

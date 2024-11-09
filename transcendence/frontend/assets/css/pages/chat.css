@@ -1,0 +1,151 @@
+#body
+{
+    width: 100%;
+    max-height: 95vh;
+}
+
+#main
+{
+    height: 80vh;
+}
+
+#game-content
+{
+    height: 100%;
+    max-height: 85vh;
+}
+
+@media (max-width: 768px)
+{
+    .sidebar {
+        flex-direction: row !important;
+        position: absolute !important;
+        width: 100% !important;
+        height: 80px !important;
+        bottom: 0;
+        left: 0;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+    hr {
+        display: none;
+    }
+}
+
+nav {
+    flex-direction: row !important;
+}
+
+.nav-link {
+    margin: 0 !important;
+    padding: 0px !important;
+}
+.logo
+{
+    display: none;
+}
+.logout
+{
+    display: none !important;
+}
+.logout-mobile
+{
+    display: block !important;
+}
+#defaultNav
+{
+    width: 100%;
+    justify-content: space-between;
+    flex-direction: row !important;
+}
+#main
+{
+    height: 70vh;
+    margin-bottom: 100px;
+
+}
+.content
+{
+    margin: 0 !important;
+}
+html
+{
+    font-size: 14px;
+}
+#pongDiv
+{
+    height: 300px !important;
+}
+}
+
+#pingDiv
+{
+    height: 500px;
+}
+
+.move-btn
+{
+    font-size: 45px;
+}
+
+.chat-message
+{
+    margin-bottom: 15px;
+    align-items: flex-start;
+    display: flex;
+}
+
+.chat-message-sender
+{
+    margin-right: 10px;
+    text-align: center;
+    color: #a0a0b9;
+}
+
+.chat-message-sender img
+{
+    border-radius: 50%;
+}
+
+.chat-message-sender p
+{
+    font-weight: bold;
+    margin-top: 5px;
+    font-size: 14px;
+    color: #fff;
+}
+
+.message-right
+{
+    flex-direction: row-reverse;
+}
+
+.chat-message-content
+{
+    color: #e1e1f7;
+    border-radius: 10px;
+    padding: 10px;
+    max-width: 70%;
+    word-wrap: break-word;
+    font-size: 14px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.chat-box
+{
+    max-height: 440px;
+}
+
+.tournament
+{
+    width: 200px;
+}
+
+.friends
+{
+    overflow-y: auto;
+    :has(.game-card)
+    {
+        max-height: 450px;
+    }
+    max-height: 450px;
+}

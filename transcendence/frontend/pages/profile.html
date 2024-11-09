@@ -1,0 +1,289 @@
+<div class="d-flex" id="game-content" xmlns="http://www.w3.org/1999/html">
+    <div>
+        <div class="sidebar neon">
+            <div class="logo">
+                P N G<br>P N G
+            </div>
+            <nav class="nav flex-column align-items-center" id="defaultNav">
+                <a class="nav-link" href="#/home">
+                    <i class="fas fa-home"></i>
+                </a>
+                <a class="nav-link" href="#/game">
+                    <i class="fas fa-gamepad"></i>
+                </a>
+                <a class="nav-link active" href="#/profile">
+                    <i class="fas fa-user"></i>
+                </a>
+                <a class="nav-link" href="#/chat">
+                    <i class="fas fa-comment"></i>
+                </a>
+                <a class="nav-link" href="#/leaderboard">
+                    <i class="fas fa-trophy"></i>
+                </a>
+                <a class="nav-link" href="#/settings">
+                    <i class="fas fa-cog"></i>
+                </a>
+                <a class="nav-link logout-mobile d-none" href="#/logout">
+                    <i class="fas fa-sign-out-alt"></i>
+                </a>
+            </nav>
+            <nav class="nav flex-column align-items-center">
+                <hr>
+                <a class="nav-link logout" href="#/logout">
+                    <i class="fas fa-sign-out-alt"></i>
+                </a>
+            </nav>
+        </div>
+    </div>
+    <div class="content flex-grow-1 ms-4">
+        <div class="row w-100">
+            <div class="col-12 col-md-12 col-lg-7 col-xl-8">
+                <div class="row d-flex mb-3">
+                    <div class="col-12 col-xl-7 mb-4">
+                        <h5 class="text-color-orange">Performance</h5>
+                        <div class="game-card row neon align-items-center me-3">
+                            <canvas id="activityChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="col-12 col-xl-5">
+                        <h5 class="text-color-orange">Friends</h5>
+                        <div class="game-card row neon me-3 pe-0">
+                            <div class="row w-100 friends">
+                                <div class="row p-0 m-0 mb-2">
+                                    <div class="col-12 game-card neon p-0 d-flex justify-content-between align-items-center">
+                                        <div class="d-flex align-items-center">
+                                            <img src="{{ user.image }}" class="object-fit-cover" style="border-radius: 3rem;" alt="Player 1" height="50" width="50">
+                                            <p class="ms-2 mb-0">Akaniber</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row p-0 m-0 mb-2">
+                                    <div class="col-12 game-card neon p-0 d-flex justify-content-between align-items-center">
+                                        <div class="d-flex align-items-center">
+                                            <img src="{{ user.image }}" class="object-fit-cover" style="border-radius: 3rem;" alt="Player 1" height="50" width="50">
+                                            <p class="ms-2 mb-0">Akaniber</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row p-0 m-0 mb-2">
+                                    <div class="col-12 game-card neon p-0 d-flex justify-content-between align-items-center">
+                                        <div class="d-flex align-items-center">
+                                            <img src="{{ user.image }}" class="object-fit-cover" style="border-radius: 3rem;" alt="Player 1" height="50" width="50">
+                                            <p class="ms-2 mb-0">Akaniber</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row p-0 m-0 mb-2">
+                                    <div class="col-12 game-card neon p-0 d-flex justify-content-between align-items-center">
+                                        <div class="d-flex align-items-center">
+                                            <img src="{{ user.image }}" class="object-fit-cover" style="border-radius: 3rem;" alt="Player 1" height="50" width="50">
+                                            <p class="ms-2 mb-0">Akaniber</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row p-0 m-0 mb-2">
+                                    <div class="col-12 game-card neon p-0 d-flex justify-content-between align-items-center">
+                                        <div class="d-flex align-items-center">
+                                            <img src="{{ user.image }}" class="object-fit-cover" style="border-radius: 3rem;" alt="Player 1" height="50" width="50">
+                                            <p class="ms-2 mb-0">Akaniber</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row p-0 m-0 mb-2">
+                                    <div class="col-12 game-card neon p-0 d-flex justify-content-between align-items-center">
+                                        <div class="d-flex align-items-center">
+                                            <img src="{{ user.image }}" class="object-fit-cover" style="border-radius: 3rem;" alt="Player 1" height="50" width="50">
+                                            <p class="ms-2 mb-0">Akaniber</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-12 col-lg-5 col-xl-4">
+                <h5 class="text-color-orange">Profile</h5>
+                <div class="profile-card game-card neon p-3 mb-4">
+                    <div class="profile-info d-flex flex-column align-items-center text-center m-1">
+                        <div>
+                            <img src="{{ user.image }}" alt="Player 1" height="80">
+                        </div>
+                        <div>
+                            <p class="mb-0">Akaniber</p>
+                        </div>
+                        <div>
+                            <p class="text-color-red">Offline</p>
+                        </div>
+                        <div class="mb-3">
+                            <a class="btn neon" href="#/chat">
+                                <i class="fas fa-comment text-white"></i>
+                            </a>
+                            <a class="btn neon" href="#/chat">
+                                <i class="fa fa-plus text-white "></i>
+                            </a>
+                        </div>
+                        <div class="w-100 mb-3">
+                            <div class="progress" style="height: 15px;">
+                                <div class="progress-bar" role="progressbar" style="width: 25%;background: #10a696;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                        <div class="row neon game-card w-100 d-flex p-3" style="font-size: 14px;">
+                            <div class="col-6 d-flex justify-content-between">
+                                <p class="p-0 m-0">Rank</p>
+                                <strong>2</strong>
+                            </div>
+                            <div class="col-6 d-flex justify-content-between">
+                                <p class="m-0 p-0">Level</p>
+                                <strong>8.9</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row w-100">
+            <div class="col-12 col-md-12 col-lg-5 col-xl-4">
+                <h5 class="text-color-orange">Achievements</h5>
+                <div class="game-card neon mb-4">
+                    <div class="player game-card neon mb-2 recently-activty">
+                        <div class="me-3">
+                            <img src="https://static.vecteezy.com/system/resources/thumbnails/015/153/253/small_2x/ranking-badges-png.png" alt="Player 1" height="50">
+                        </div>
+                        <p class="mb-0">
+                            First Win
+                        </p>
+                        <p class="recently-activty-clock">27-10-2024 15:33</p>
+                    </div>
+                    <div class="player game-card neon mb-2 recently-activty">
+                        <div class="me-3">
+                            <img src="https://static.vecteezy.com/system/resources/thumbnails/015/153/253/small_2x/ranking-badges-png.png" alt="Player 1" height="50">
+                        </div>
+                        <p class="mb-0">
+                            <!-- achivement peş peşe 10 galibiyet -->
+                            10 Win in a row
+                        </p>
+                        <p class="recently-activty-clock">27-10-2024 15:33</p>
+                    </div>
+                    <div class="player game-card neon mb-2 recently-activty">
+                        <div class="me-3">
+                            <img src="https://static.vecteezy.com/system/resources/thumbnails/015/153/253/small_2x/ranking-badges-png.png" alt="Player 1" height="50">
+                        </div>
+                        <p class="mb-0">
+                            20 Win in a row
+                        </p>
+                        <p class="recently-activty-clock">27-10-2024 15:33</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-12 col-lg-7 col-xl-8">
+                <h5 class="text-color-orange">Games History</h5>
+                <div class="game-card neon best-players mb-4">
+                    <div class="col-12 w-100 mb-2">
+                        <div class="col-12 d-flex justify-content-center w-100">
+                            <p class="text-color-blue">7 WIN</p>
+                            <p class="text-color-gray ms-5 me-5">3 DRAW</p>
+                            <p class="text-color-red">1 LOSE</p>
+                        </div>
+                    </div>
+
+                    <div class="col mb-2 align-items-center text-center">
+                        <div class="player game-card neon mb-2">
+                            <div class="center p-1">
+                                <img class="me-2" src="{{ user.image }}" alt="Player 1" height="50">
+                                <p class="m-0">Akaniber</p>
+                            </div>
+                            <div class="p-1 d-none d-md-block">
+                                <strong class="text-color-blue">10</strong>
+                                /
+                                <strong class="text-color-red">5</strong>
+                            </div>
+                            <div class="p-1">
+                                <p class="m-0">+120 XP</p>
+                            </div>
+                            <div class="p-1 d-none d-md-block">
+                                <p class="m-0">Friends Mode</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col mb-2 align-items-center text-center">
+                        <div class="player game-card neon mb-2">
+                            <div class="center p-1">
+                                <img class="me-2" src="{{ user.image }}" alt="Player 1" height="50">
+                                <p class="m-0">Akaniber</p>
+                            </div>
+                            <div class="p-1 d-none d-md-block">
+                                <strong class="text-color-blue">10</strong>
+                                /
+                                <strong class="text-color-red">5</strong>
+                            </div>
+                            <div class="p-1">
+                                <p class="m-0">+120 XP</p>
+                            </div>
+                            <div class="p-1 d-none d-md-block">
+                                <p class="m-0">Friends Mode</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col mb-2 align-items-center text-center">
+                        <div class="player game-card neon mb-2">
+                            <div class="center p-1">
+                                <img class="me-2" src="{{ user.image }}" alt="Player 1" height="50">
+                                <p class="m-0">Akaniber</p>
+                            </div>
+                            <div class="p-1 d-none d-md-block">
+                                <strong class="text-color-blue">10</strong>
+                                /
+                                <strong class="text-color-red">5</strong>
+                            </div>
+                            <div class="p-1">
+                                <p class="m-0">+120 XP</p>
+                            </div>
+                            <div class="p-1 d-none d-md-block">
+                                <p class="m-0">Friends Mode</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col mb-2 align-items-center text-center">
+                        <div class="player game-card neon mb-2">
+                            <div class="center p-1">
+                                <img class="me-2" src="{{ user.image }}" alt="Player 1" height="50">
+                                <p class="m-0">Akaniber</p>
+                            </div>
+                            <div class="p-1 d-none d-md-block">
+                                <strong class="text-color-blue">10</strong>
+                                /
+                                <strong class="text-color-red">5</strong>
+                            </div>
+                            <div class="p-1">
+                                <p class="m-0">+120 XP</p>
+                            </div>
+                            <div class="p-1 d-none d-md-block">
+                                <p class="m-0">Friends Mode</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col mb-2 align-items-center text-center">
+                        <div class="player game-card neon mb-2">
+                            <div class="center p-1">
+                                <img class="me-2" src="{{ user.image }}" alt="Player 1" height="50">
+                                <p class="m-0">Akaniber</p>
+                            </div>
+                            <div class="p-1 d-none d-md-block">
+                                <strong class="text-color-blue">10</strong>
+                                /
+                                <strong class="text-color-red">5</strong>
+                            </div>
+                            <div class="p-1">
+                                <p class="m-0">+120 XP</p>
+                            </div>
+                            <div class="p-1 d-none d-md-block">
+                                <p class="m-0">Friends Mode</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

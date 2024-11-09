@@ -1,0 +1,217 @@
+<div class="d-flex" id="game-content">
+    <div>
+        <div class="sidebar neon">
+            <div class="logo">
+                P N G<br>P N G
+            </div>
+            <nav class="nav flex-column align-items-center" id="defaultNav">
+                <a class="nav-link" href="#/home">
+                    <i class="fas fa-home"></i>
+                </a>
+                <a class="nav-link active" href="#/game">
+                    <i class="fas fa-gamepad"></i>
+                </a>
+                <a class="nav-link" href="#/profile">
+                    <i class="fas fa-user"></i>
+                </a>
+                <a class="nav-link" href="#/chat">
+                    <i class="fas fa-comment"></i>
+                </a>
+                <a class="nav-link" href="#/leaderboard">
+                    <i class="fas fa-trophy"></i>
+                </a>
+                <a class="nav-link" href="#/settings">
+                    <i class="fas fa-cog"></i>
+                </a>
+                <a class="nav-link logout-mobile d-none" href="#/logout">
+                    <i class="fas fa-sign-out-alt"></i>
+                </a>
+            </nav>
+            <nav class="nav flex-column align-items-center">
+                <hr>
+                <a class="nav-link logout" href="#/logout">
+                    <i class="fas fa-sign-out-alt"></i>
+                </a>
+            </nav>
+        </div>
+    </div>
+    <div class="content flex-grow-1 ms-4">
+        <div class="row w-100">
+            <div class="col-12 col-md-12 col-lg-7 col-xl-8">
+                <div class="col-12 d-flex justify-content-between">
+                    <div>
+                        <h5 class="text-color-blue">akaniber</h5>
+                    </div>
+                    <div class="d-flex">
+                        <h5 class="text-color-blue">0</h5>
+                        <h5 class="text-color-orange ms-3 me-3">VS</h5>
+                        <h5 class="text-color-red">0</h5>
+                    </div>
+                    <div>
+                        <h5 class="text-color-red">aaybaz</h5>
+                    </div>
+                </div>
+                <div class="game-card row neon mb-3 pe-0 ps-0">
+                    <div class="row m-0 mb-3" id="pongDiv">
+                        <canvas id="pongCanvas"></canvas>
+                    </div>
+                    <div class="d-flex d-md-none justify-content-between ps-5 pe-5">
+                        <div>
+                            <a class="me-2 btn neon text-white move-btn">
+                                <i class="fas fa-chevron-up"></i>
+                            </a>
+                        </div>
+                        <div>
+                            <a class="ms-2 btn neon text-white move-btn">
+                                <i class="fas fa-chevron-down"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <h5 class="text-color-orange">Tournament</h5>
+                <div class="game-card neon row mb-4 d-flex justify-content-center align-items-center">
+                    <div style="overflow-y: auto;">
+                        <div class="tournaments d-flex align-items-center">
+                            <div class="tournament tournament-1 me-2">
+                                <div class="versus game-card neon mb-2">
+                                    <div class="versus-player d-flex text-center align-items-center justify-content-between text-color-blue">
+                                        <p class="mb-0 me-2">akaniber</p>
+                                        <p class="mb-0">0</p>
+                                    </div>
+                                    <hr>
+                                    <div class="versus-player d-flex text-center align-items-center justify-content-between text-color-red">
+                                        <p class="mb-0 me-2 ">aaybaz</p>
+                                        <p class="mb-0">0</p>
+                                    </div>
+                                </div>
+                                <div class="versus game-card neon mb-2">
+                                    <div class="versus-player d-flex text-center align-items-center justify-content-between text-color-blue">
+                                        <p class="mb-0 me-2">akaniber</p>
+                                        <p class="mb-0">0</p>
+                                    </div>
+                                    <hr>
+                                    <div class="versus-player d-flex text-center align-items-center justify-content-between text-color-red">
+                                        <p class="mb-0 me-2 ">aaybaz</p>
+                                        <p class="mb-0">0</p>
+                                    </div>
+                                </div>
+                                <div class="versus game-card neon mb-2">
+                                    <div class="versus-player d-flex text-center align-items-center justify-content-between text-color-blue">
+                                        <p class="mb-0 me-2">akaniber</p>
+                                        <p class="mb-0">0</p>
+                                    </div>
+                                    <hr>
+                                    <div class="versus-player d-flex text-center align-items-center justify-content-between text-color-red">
+                                        <p class="mb-0 me-2 ">aaybaz</p>
+                                        <p class="mb-0">0</p>
+                                    </div>
+                                </div>
+                                <div class="versus game-card neon mb-2">
+                                    <div class="versus-player d-flex text-center align-items-center justify-content-between text-color-blue">
+                                        <p class="mb-0 me-2">akaniber</p>
+                                        <p class="mb-0">0</p>
+                                    </div>
+                                    <hr>
+                                    <div class="versus-player d-flex text-center align-items-center justify-content-between text-color-red">
+                                        <p class="mb-0 me-2 ">aaybaz</p>
+                                        <p class="mb-0">0</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tournament tournament-2 me-2">
+                                <div class="versus game-card neon mb-2">
+                                    <div class="versus-player d-flex text-center align-items-center justify-content-between text-color-blue">
+                                        <p class="mb-0 me-2">akaniber</p>
+                                        <p class="mb-0">0</p>
+                                    </div>
+                                    <hr>
+                                    <div class="versus-player d-flex text-center align-items-center justify-content-between text-color-red">
+                                        <p class="mb-0 me-2 ">aaybaz</p>
+                                        <p class="mb-0">0</p>
+                                    </div>
+                                </div>
+                                <div class="versus game-card neon mb-2">
+                                    <div class="versus-player d-flex text-center align-items-center justify-content-between text-color-blue">
+                                        <p class="mb-0 me-2">akaniber</p>
+                                        <p class="mb-0">0</p>
+                                    </div>
+                                    <hr>
+                                    <div class="versus-player d-flex text-center align-items-center justify-content-between text-color-red">
+                                        <p class="mb-0 me-2 ">aaybaz</p>
+                                        <p class="mb-0">0</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tournament tournament-3 me-2">
+                                <div class="versus game-card neon mb-2">
+                                    <div class="versus-player d-flex text-center align-items-center justify-content-between text-color-blue">
+                                        <p class="mb-0 me-2">akaniber</p>
+                                        <p class="mb-0">0</p>
+                                    </div>
+                                    <hr>
+                                    <div class="versus-player d-flex text-center align-items-center justify-content-between text-color-red">
+                                        <p class="mb-0 me-2 ">aaybaz</p>
+                                        <p class="mb-0">0</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tournament tournament-4">
+                                <div class="versus game-card neon mb-2">
+                                    <div class="versus-player d-flex text-center align-items-center justify-content-between text-color-blue">
+                                        <p class="mb-0 me-2">akaniber</p>
+                                        <p class="mb-0">0</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-12 col-lg-5 col-xl-4 mb-4">
+                <h5 class="text-color-orange">Chat</h5>
+                <div class="profile-card game-card neon p-3 mb-4">
+                    <div class="chat-box overflow-auto ps-0 mb-2">
+                        <div class="chat-message message-right">
+                            <div class="chat-message-sender">
+                                <img src="{{ user.image }}" alt="Player 1"
+                                     height="50">
+                                <p class="mb-0 me-2">akaniber</p>
+                            </div>
+                            <div class="chat-message-content neon">
+                                <p class="mb-0">Hello, how are you?</p>
+                            </div>
+                        </div>
+                        <div class="chat-message">
+                            <div class="chat-message-sender">
+                                <img src="{{ user.image }}" alt="Player 1"
+                                     height="50">
+                                <p class="mb-0">aaybaz</p>
+                            </div>
+                            <div class="chat-message-content neon">
+                                <p class="mb-0">I'm fine, thank you.</p>
+                            </div>
+                        </div>
+                        <div class="chat-message message-right">
+                            <div class="chat-message-sender">
+                                <img src="{{ user.image }}" alt="Player 1"
+                                     height="50">
+                                <p class="mb-0 me-2">akaniber</p>
+                            </div>
+                            <div class="chat-message-content neon">
+                                <p class="mb-0">By by.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <form action="" method="post">
+                        <div class="input-group mb-3 neon">
+                            <input type="text" class="form-control" placeholder="Type a message"/>
+                            <span class="input-group-text">
+                                <i class="fas fa-paper-plane"></i>
+                            </span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
