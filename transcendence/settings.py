@@ -42,7 +42,10 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt',
     'validator',
     'transcendence.services',
+    'channels',
 ]
+
+ASGI_APPLICATION = 'transcendence.asgi.application'
 
 CSRF_TRUSTED_ORIGINS = [
     'http://localhost:8000',
