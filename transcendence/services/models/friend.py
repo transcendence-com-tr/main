@@ -1,5 +1,10 @@
+import django
+import os
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'transcendence.settings')
+django.setup()
 from django.db import models
 from transcendence.services.models.user import User
+
 
 class Friend(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='user')

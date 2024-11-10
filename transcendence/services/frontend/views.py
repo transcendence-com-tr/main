@@ -24,6 +24,42 @@ def game(request):
 
 @api_view(["GET"])
 @permission_classes([AllowAny])
+def game_friends(request):
+    return render(request, "game/friends.html", {
+
+    })
+
+@api_view(["GET"])
+@permission_classes([AllowAny])
+def game_multiplayer(request):
+    return render(request, "game/multiplayer.html", {
+
+    })
+
+@api_view(["GET"])
+@permission_classes([AllowAny])
+def game_tournament(request):
+    return render(request, "game/tournament.html", {
+
+    })
+
+@api_view(["GET"])
+@permission_classes([AllowAny])
+def game_classic(request):
+    return render(request, "game/classic.html", {
+
+    })
+
+@api_view(["GET"])
+@permission_classes([AllowAny])
+def game_ai(request):
+    return render(request, "game/ai.html", {
+
+    })
+
+
+@api_view(["GET"])
+@permission_classes([AllowAny])
 def profile(request):
     return render(request, "profile.html", {
 

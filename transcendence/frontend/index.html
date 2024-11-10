@@ -44,6 +44,11 @@
     Router.add("#/home", "home.html", "Home Page");
     Router.add("#/profile", "profile.html", "Profile Page");
     Router.add("#/game", "game.html", "Game Page");
+    Router.add("#/game/friends", "game/friends.html", "Game Friends Page");
+    Router.add("#/game/multiplayer", "game/multiplayer.html", "Game Multiplayer Page");
+    Router.add("#/game/classic", "game/classic.html", "Game Classic Page");
+    Router.add("#/game/ai", "game/ai.html", "Game AI Page");
+    Router.add("#/game/tournament", "game/tournament.html", "Game Tournament Page");
     Router.add("#/chat", "chat.html", "Chat Page");
     Router.add("#/leaderboard", "leaderboard.html", "Leaderboard Page");
     Router.add("#/logout", "logout.html", "Logout Page");
@@ -56,11 +61,22 @@
     let socket = new SocketConnection();
     setInterval(function ()
     {
-        /*
-        socket.send("ping", {
-            "token": localStorage.getItem("token")
-        }, "success"); */
-    }, 1500);
+        socket.send("ping");
+    }, 15000);
+    setInterval(function ()
+    {
+        socket.send("notify");
+    }, 1000);
+
+    socket.event("ping", function (data)
+    {
+
+    });
+
+    socket.event("notify", function (data)
+    {
+
+    });
 </script>
 </body>
 </html>

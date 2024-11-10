@@ -63,7 +63,7 @@ var Router = {
                 document.head.appendChild(css);
                 clearAllProcesses();
 
-                const response = await fetch("api/frontend/" + template.split("/").pop().split(".")[0], {
+                const response = await fetch("api/frontend/" + template.split(".")[0].replaceAll("pages/", ""), {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',

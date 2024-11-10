@@ -26,11 +26,10 @@ def success_response(title, message, state,  status, payload=None, error=None, m
         'error': error
     }, status=status)
 
-def socket_response(event, payload, status="success"):
+def socket_response(event, payload):
     return str(json.dumps({
         'event': event,
         'payload': payload,
-        'status': status
     }))
 
 
