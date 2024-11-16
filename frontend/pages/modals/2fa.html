@@ -1,0 +1,14 @@
+<p class="text-center">Enter the verification code you received to the ali@kaniberk.com email address.</p>
+<form action="auth/2fa" method="post">
+    <div class="input-group mb-x3 neon mb-2">
+        <input type="text" name="code" class="form-control" placeholder="Code">
+        <span class="input-group-text">
+            <i class="fas fa-check"></i>
+        </span>
+    </div>
+    <div class="col-12 mb-2">
+        <button type="submit" class="btn neon w-100 mb-2">Verify</button>
+        <button type="button" onclick="notificationTemplate('Change Information', 'change-information', false)" class="btn neon w-100">Change Information</button>
+
+    </div>
+</form>

@@ -1,0 +1,152 @@
+#body
+{
+    width: 100%;
+    max-height: 95vh;
+}
+
+#main
+{
+    height: 80vh;
+}
+
+#game-content
+{
+    height: 100%;
+    max-height: 85vh;
+}
+
+@media (max-width: 768px)
+{
+    .sidebar
+    {
+        flex-direction: row !important;
+        position: absolute !important;
+        width: 100% !important;
+        height: 80px !important;
+        bottom: 0;
+        left: 0;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+    nav
+    {
+        flex-direction: row !important;
+        hr
+        {
+            display: none;
+        }
+    }
+    .nav-link
+    {
+        margin: 0 !important;
+        padding: 0px !important;
+    }
+    }
+    .logo
+    {
+        display: none;
+    }
+    #game-content
+    {
+        flex-direction: column-reverse !important;
+    }
+    .logout
+    {
+        display: none !important;
+    }
+    .logout-mobile
+    {
+        display: block !important;
+    }
+    #defaultNav
+    {
+        width: 100%;
+        justify-content: space-between;
+    }
+    #main
+    {
+        height: 70vh;
+        margin-bottom: 100px;
+
+    }
+    .content
+    {
+        margin: 0 !important;
+    }
+    html
+    {
+        font-size: 14px;
+    }
+
+    .recently-activty img
+    {
+        height: 32px;
+    }
+}
+
+.game-card
+{
+    border-radius: 1.5rem;
+}
+
+.mode-card
+{
+    opacity: 0.4;
+    z-index: 1;
+    zoom: 0.8;
+    height: 100%;
+}
+
+.mode-card.active
+{
+    opacity: 1 !important;
+    z-index: 2 !important;;
+    zoom: 1 !important;;
+}
+
+.game-modes a
+{
+    color: var(--text-color-orange)
+}
+
+.player
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    background: var(--player-gradient);
+    box-shadow: 0px 0px 20px 0px black;
+    padding: 10;
+}
+
+.recently-activty
+{
+    position: relative;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    background: var(--main-background-color);
+    box-shadow: 0px 0px 20px 0px black;
+    padding: 10;
+    font-size: 18;
+    padding-left: 25px;
+    border-radius: 1rem;
+    justify-content: left;
+}
+
+.recently-activty-clock
+{
+    position: absolute;
+    right: 12;
+    bottom: 0;
+    font-size: 12;
+    margin-bottom: 0;
+}
+
+@media (max-width: 1195px)
+{
+    .mode-card:not(.active)
+    {
+        display: none;
+    }
+}

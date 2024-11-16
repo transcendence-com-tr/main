@@ -1,0 +1,39 @@
+<div class="game-card neon col-12">
+    <div class="game-card overflow-auto ps-0 mb-0" style="max-height: 500px">
+        <div class="row">
+            <div class="col-12 col-md-6 d-flex align-items-center text-center mb-2 justify-content-center">
+                <div style="max-height: 400px; max-width: 400px; width: 100%" class="neon">
+                    <img src="../assets/images/image1.png" class="w-100">
+                </div>
+            </div>
+            <div class="col-12 col-md-6">
+                <p class="text-center">Confirm the information below to complete your account</p>
+                <form action="auth" method="PUT">
+                    <div class="input-group mb-3 neon">
+                        <input type="text" name="username" class="form-control" placeholder="Username" value="{{ user.username_42 }}" />
+                        <span class="input-group-text">
+                            <i class="fas fa-address-card"></i>
+                        </span>
+                    </div>
+                    <div class="input-group mb-3 neon">
+                        <input type="text" name="email" class="form-control" placeholder="Email" value="{{ user.email_42 }}" />
+                        <span class="input-group-text">
+                            <i class="fas fa-envelope"></i>
+                        </span>
+                    </div>
+                    <div class="input-group mb-3 neon">
+                        <input type="password" name="password" class="form-control" placeholder="Password" />
+                        <span class="input-group-text">
+                            <i class="fas fa-lock"></i>
+                        </span>
+                    </div>
+                    <div class="col-12 mb-2">
+                        <button type="submit" class="btn neon w-100 mb-2">Register my account</button>
+                        <a href="#/42-connect" type="button" class="btn neon w-100 mb-2 text-white">Sync my account</a>
+                        <a href="#/logout" class="btn neon w-100 mb-2 text-white">Logout</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

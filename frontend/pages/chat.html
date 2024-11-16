@@ -1,0 +1,114 @@
+<div class="d-flex" id="game-content">
+    <div>
+        <div class="sidebar neon">
+            <div class="logo">
+                P N G<br>P N G
+            </div>
+            <nav class="nav flex-column align-items-center" id="defaultNav">
+                <a class="nav-link" href="#/home">
+                    <i class="fas fa-home"></i>
+                </a>
+                <a class="nav-link" href="#/game">
+                    <i class="fas fa-gamepad"></i>
+                </a>
+                <a class="nav-link" href="#/profile">
+                    <i class="fas fa-user"></i>
+                </a>
+                <a class="nav-link active" href="#/chat">
+                    <i class="fas fa-comment"></i>
+                </a>
+                <a class="nav-link" href="#/leaderboard">
+                    <i class="fas fa-trophy"></i>
+                </a>
+                <a class="nav-link" href="#/settings">
+                    <i class="fas fa-cog"></i>
+                </a>
+                <a class="nav-link logout-mobile d-none" href="#/logout">
+                    <i class="fas fa-sign-out-alt"></i>
+                </a>
+            </nav>
+            <nav class="nav flex-column align-items-center">
+                <hr>
+                <a class="nav-link logout" href="#/logout">
+                    <i class="fas fa-sign-out-alt"></i>
+                </a>
+            </nav>
+        </div>
+    </div>
+    <div class="content flex-grow-1 ms-4">
+        <div class="row w-100">
+            <div class="col-12 col-md-12 col-lg-7 col-xl-8">
+                <h5 class="text-color-orange">Chat</h5>
+                <div class="profile-card game-card neon p-3 mb-4">
+                    <div class="chat-box overflow-auto ps-0 mb-2">
+                        <div class="chat-message message-right">
+                            <div class="chat-message-sender">
+                                <img src="{{ user.image }}" alt="Player 1"
+                                     height="50" width="50" class="object-fit-cover">
+                                <p class="mb-0 me-2">akaniber</p>
+                            </div>
+                            <div class="chat-message-content neon">
+                                <p class="mb-0">Hello, how are you?</p>
+                            </div>
+                        </div>
+                        <div class="chat-message">
+                            <div class="chat-message-sender">
+                                <img src="{{ user.image }}" alt="Player 1"
+                                     height="50" width="50" class="object-fit-cover">
+                                <p class="mb-0">aaybaz</p>
+                            </div>
+                            <div class="chat-message-content neon">
+                                <p class="mb-0">I'm fine, thank you.</p>
+                            </div>
+                        </div>
+                        <div class="chat-message message-right">
+                            <div class="chat-message-sender">
+                                <img src="{{ user.image }}" alt="Player 1"
+                                     height="50" width="50" class="object-fit-cover">
+                                <p class="mb-0 me-2">akaniber</p>
+                            </div>
+                            <div class="chat-message-content neon">
+                                <p class="mb-0">By by.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-group mb-3 neon">
+                        <input type="text" class="form-control" name="message" id="message" placeholder="Type a message"/>
+                        <span class="input-group-text">
+                            <i class="fas fa-paper-plane"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-12 col-lg-5 col-xl-4">
+                <h5 class="text-color-orange">Friends</h5>
+                <div class="profile-card game-card neon p-3 mb-4">
+                    <div class="row w-100 friends m-0">
+                        {% for item in friends %}
+                            <div class="row p-0 m-0 mb-2">
+                                    <div class="col-12 game-card neon p-0 d-flex justify-content-between align-items-center">
+                                        <div class="d-flex align-items-center {% if item.friend.username == username or item.user.username == username %}chat-active{% endif %}">
+                                            <img src="{% if item.friend.username != user.username %}{{ item.friend.image }}{% else %}{{ item.user.image }}{% endif %}" class="object-fit-cover" style="border-radius: 3rem;" alt="Player 1" height="50" width="50">
+                                            <p class="ms-2 mb-0 {% if item.friend.username == username or item.user.username == username %}text-color-blue{% endif %}">
+                                                {% if item.friend.username != user.username %}
+                                                    {{ item.friend.username }}
+                                                {% else %}
+                                                    {{ item.user.username }}
+                                                {% endif %}
+                                            </p>
+                                        </div>
+                                    <div class="d-flex text-center align-items-center">
+                                        <a href="#/chat/{% if item.friend.username != user.username %}{{ item.friend.username }}{% else %}{{ item.user.username }}{% endif %}" class="btn neon text-white me-2">
+                                            <i class="fas fas fa-comment"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

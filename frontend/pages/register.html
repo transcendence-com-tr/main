@@ -1,0 +1,66 @@
+<div class="game-card neon col-12">
+    <div class="game-card overflow-auto ps-0 mb-0" style="max-height: 500px">
+        <div class="row">
+            <div class="col-12 col-md-6 d-flex align-items-center text-center mb-2 justify-content-center">
+                <div style="max-height: 400px; max-width: 400px; width: 100%" class="neon">
+                    <img src="../assets/images/image1.png" class="w-100">
+                </div>
+            </div>
+            <div class="col-12 col-md-6">
+                <form action="auth/register" method="post">
+                    <p class="login-box-msg text-center">Register to start your session</p>
+                    <div class="input-group mb-3 neon">
+                        <input type="text" name="username" class="form-control" placeholder="Username" />
+                        <span class="input-group-text">
+                            <i class="fas fa-address-card"></i>
+                        </span>
+                    </div>
+                    <div class="input-group mb-3 neon">
+                        <input type="email" name="email" class="form-control" placeholder="Email" />
+                        <span class="input-group-text">
+                            <i class="fas fa-envelope"></i>
+                        </span>
+                    </div>
+                    <div class="input-group mb-3 neon">
+                        <input type="password" name="password" class="form-control" placeholder="Password" />
+                        <span class="input-group-text">
+                            <i class="fas fa-lock"></i>
+                        </span>
+                    </div>
+                    <div class="row d-flex align-items-center mb-2 mr-0 ml-0">
+                        <div class="col-12 mb-2">
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input neon" id="remember" name="remember">
+                                <label class="form-check-label" for="remember">Remember Me</label>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <button type="submit" class="btn neon w-100">Register</button>
+                        </div>
+                    </div>
+                </form>
+                <form action="auth/42" method="GET">
+                    <div class="col-12">
+                        <button type="submit" class="btn neon w-100">Register With 42 Intra</button>
+                    </div>
+                </form>
+                <div class="row d-flex justify-content-between">
+                    <div class="col-6">
+                        <p class="mb-1 text-nowrap">
+                            <a href="#/login">
+                                <i class="fa fa-edit"></i> Login
+                            </a>
+                        </p>
+                    </div>
+                    <div class="col-6 text-end">
+                        <p class="mb-0 text-nowrap">
+                            <a href="#/help">
+                                <i class="fas fa-life-ring"></i> Help
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
