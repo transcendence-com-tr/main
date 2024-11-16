@@ -4,6 +4,7 @@ var Router = {
     urls: [],
     titles: [],
     funcs: [],
+    params: {},
     currentCleanup: null,
     isLoading: false,
 
@@ -14,7 +15,21 @@ var Router = {
         this.funcs.push(func);
     },
 
+    parseParams: function(path) {
+        const routeParts = path.split('/');
+        const hashParts = location.hash.split('/');
+        this.params = {};
+
+        routeParts.forEach((part, index) => {
+            if (part.startsWith('<') && part.endsWith('>')) {
+                const paramName = part.slice(1, -1);
+                this.params[paramName] = hashParts[index].replace('#', '');
+            }
+        });
+    },
+
     navigate: function() {
+        this.params = {};
         var routes = this.routes,
             urls = this.urls,
             funcs = this.funcs,
@@ -22,7 +37,7 @@ var Router = {
 
         async function loading() {
             if (Router.isLoading) return;
-                Router.isLoading = true;
+            Router.isLoading = true;
             var preloader = document.createElement("div");
             try {
                 while (document.getElementById("css"))
@@ -33,8 +48,17 @@ var Router = {
                     document.getElementById("mainJS").remove();
                 clearAllProcesses();
 
-                var routeIndex = routes.indexOf(location.hash),
-                    template = urls[routeIndex], func = funcs[routeIndex];
+                let routeIndex = -1;
+                routes.forEach((route, index) => {
+                    const regexRoute = new RegExp("^" + route.replace(/<\w+>/g, "[^/]+") + "$");
+                    if (regexRoute.test(location.hash)) {
+                        routeIndex = index;
+                        Router.parseParams(route);
+                    }
+                });
+
+                var template = urls[routeIndex];
+                var func = funcs[routeIndex];
 
                 if (Router.currentCleanup) {
                     Router.currentCleanup();
@@ -55,7 +79,7 @@ var Router = {
 
                 let css = document.createElement("link");
                 css.rel = "stylesheet";
-                css.href = "assets/css/" + template.split(".")[0] + ".css?v=470";
+                css.href = "assets/css/" + template.split(".")[0] + ".css?v=490";
                 css.id = "css";
                 css.onerror = function() {
                     console.warn('CSS file not found for template:', template);
@@ -63,7 +87,11 @@ var Router = {
                 document.head.appendChild(css);
                 clearAllProcesses();
 
-                const response = await fetch("api/frontend/" + template.split(".")[0].replaceAll("pages/", ""), {
+                let apiURL = template.split(".")[0].replaceAll("pages/", "");
+                console.log(apiURL);
+                if (apiURL === "chat")
+                    apiURL += "/" + Router.params["username"];
+                const response = await fetch("api/frontend/" + apiURL, {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',
@@ -93,7 +121,7 @@ var Router = {
 
                 const script = document.createElement("script");
                 script.id = "js";
-                script.src = "assets/js/" + template.split(".")[0] + ".js?v=470";
+                script.src = "assets/js/" + template.split(".")[0] + ".js?v=490";
                 script.defer = true;
 
                 script.onload = function() {
@@ -117,7 +145,7 @@ var Router = {
 
                 const mainScript = document.createElement("script");
                 mainScript.id = "mainJS";
-                mainScript.src = "assets/js/main.js?v=470";
+                mainScript.src = "assets/js/main.js?v=490";
                 mainScript.defer = true;
                 mainScript.onload = function() {
                     console.log('JS main file loaded successfully:', mainScript.src);
@@ -140,4 +168,8 @@ var Router = {
     get: function() {
         return location.hash.slice(2);
     },
+
+    getParameter: function(name) {
+        return this.params[name];
+    }
 };

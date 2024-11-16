@@ -5,14 +5,14 @@ import django
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'transcendence.settings')
 django.setup()
 
-class Friend(models.Model):
+class Chat(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='user')
     friend = models.ForeignKey(User, on_delete=models.CASCADE, related_name='friend')
-    is_accepted = models.BooleanField(default=False)
+    message = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
-        db_table = 'friend'
+        db_table = 'chat'
         ordering = ['created_at']
         unique_together = ['user', 'friend']

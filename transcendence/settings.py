@@ -177,3 +177,8 @@ CLIENT_SECRET42 = os.getenv('CLIENT_SECRET')
 CONNECT_LINK42 = os.getenv('CONNECT_LINK')
 
 
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": 'channels.layers.InMemoryChannelLayer'
+    }
+}

@@ -1,10 +1,8 @@
 from django.db import models
 import os
 import django
-import os
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'transcendence.settings')
 django.setup()
-
 class User(models.Model):
     ## normal user model
     username = models.CharField(max_length=255, unique=True, null=True)

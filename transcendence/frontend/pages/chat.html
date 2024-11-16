@@ -37,7 +37,7 @@
     </div>
     <div class="content flex-grow-1 ms-4">
         <div class="row w-100">
-            <div class="col-12 col-md-7 col-lg-8 col-xl-9">
+            <div class="col-12 col-md-12 col-lg-7 col-xl-8">
                 <h5 class="text-color-orange">Chat</h5>
                 <div class="profile-card game-card neon p-3 mb-4">
                     <div class="chat-box overflow-auto ps-0 mb-2">
@@ -72,68 +72,39 @@
                             </div>
                         </div>
                     </div>
-                    <form action="" method="post">
-                        <div class="input-group mb-3 neon">
-                            <input type="text" class="form-control" placeholder="Type a message"/>
-                            <span class="input-group-text">
-                                <i class="fas fa-paper-plane"></i>
-                            </span>
-                        </div>
-                    </form>
+                    <div class="input-group mb-3 neon">
+                        <input type="text" class="form-control" name="message" id="message" placeholder="Type a message"/>
+                        <span class="input-group-text">
+                            <i class="fas fa-paper-plane"></i>
+                        </span>
+                    </div>
                 </div>
             </div>
-
-            <div class="col-12 col-md-5 col-lg-4 col-xl-3">
+            <div class="col-12 col-md-12 col-lg-5 col-xl-4">
                 <h5 class="text-color-orange">Friends</h5>
                 <div class="profile-card game-card neon p-3 mb-4">
                     <div class="row w-100 friends m-0">
-                        <div class="row p-0 m-0 mb-2">
-                            <div class="col-12 game-card neon p-0 d-flex justify-content-between align-items-center">
-                                <div class="d-flex align-items-center">
-                                    <img src="{{ user.image }}" class="object-fit-cover" style="border-radius: 3rem;" alt="Player 1" height="50" width="50">
-                                    <p class="ms-2 mb-0 text-color-blue">Aaybaz</p>
+                        {% for item in friends %}
+                            <div class="row p-0 m-0 mb-2">
+                                    <div class="col-12 game-card neon p-0 d-flex justify-content-between align-items-center">
+                                        <div class="d-flex align-items-center {% if item.friend.username == username or item.user.username == username %}chat-active{% endif %}">
+                                            <img src="{% if item.friend.username != user.username %}{{ item.friend.image }}{% else %}{{ item.user.image }}{% endif %}" class="object-fit-cover" style="border-radius: 3rem;" alt="Player 1" height="50" width="50">
+                                            <p class="ms-2 mb-0 {% if item.friend.username == username or item.user.username == username %}text-color-blue{% endif %}">
+                                                {% if item.friend.username != user.username %}
+                                                    {{ item.friend.username }}
+                                                {% else %}
+                                                    {{ item.user.username }}
+                                                {% endif %}
+                                            </p>
+                                        </div>
+                                    <div class="d-flex text-center align-items-center">
+                                        <a href="#/chat/{% if item.friend.username != user.username %}{{ item.friend.username }}{% else %}{{ item.user.username }}{% endif %}" class="btn neon text-white me-2">
+                                            <i class="fas fas fa-comment"></i>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="row p-0 m-0 mb-2">
-                            <div class="col-12 game-card neon p-0 d-flex justify-content-between align-items-center">
-                                <div class="d-flex align-items-center">
-                                    <img src="{{ user.image }}" class="object-fit-cover" style="border-radius: 3rem;" alt="Player 1" height="50" width="50">
-                                    <p class="ms-2 mb-0">Akaniber</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row p-0 m-0 mb-2">
-                            <div class="col-12 game-card neon p-0 d-flex justify-content-between align-items-center">
-                                <div class="d-flex align-items-center">
-                                    <img src="{{ user.image }}" class="object-fit-cover" style="border-radius: 3rem;" alt="Player 1" height="50" width="50">
-                                    <p class="ms-2 mb-0">Akaniber</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row p-0 m-0 mb-2">
-                            <div class="col-12 game-card neon p-0 d-flex justify-content-between align-items-center">
-                                <div class="d-flex align-items-center">
-                                    <img src="{{ user.image }}" class="object-fit-cover" style="border-radius: 3rem;" alt="Player 1" height="50" width="50">
-                                    <p class="ms-2 mb-0">Akaniber</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row p-0 m-0 mb-2">
-                            <div class="col-12 game-card neon p-0 d-flex justify-content-between align-items-center">
-                                <div class="d-flex align-items-center">
-                                    <img src="{{ user.image }}" class="object-fit-cover" style="border-radius: 3rem;" alt="Player 1" height="50" width="50">
-                                    <p class="ms-2 mb-0">Akaniber</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row p-0 m-0 mb-2">
-                            <div class="col-12 game-card neon p-0 d-flex justify-content-between align-items-center">
-                                <div class="d-flex align-items-center">
-                                    <img src="{{ user.image }}" class="object-fit-cover" style="border-radius: 3rem;" alt="Player 1" height="50" width="50">
-                                    <p class="ms-2 mb-0">Akaniber</p>
-                                </div>
-                            </div>
+                            {% endfor %}
                         </div>
                     </div>
                 </div>

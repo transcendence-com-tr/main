@@ -88,6 +88,7 @@ def me(request):
             "email": request.user.email,
             "username_42": request.user.username_42,
             "email_42": request.user.email_42,
+            "image": request.user.image
         }}, None, None)
 
 @api_view(['GET'])

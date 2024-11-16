@@ -10,9 +10,11 @@ from transcendence.services.models.friend import Friend
 @api_view(['GET'])
 @permission_classes([AllowAny])
 def home(request):
+    friends = Friend.objects.filter(friend=request.user, is_accepted=False).exists()
+    result = friends
     return render(request, 'home.html', {
         'user': request.user,
-        "new_notify": False,
+        "new_notify": result,
     })
 
 @api_view(["GET"])
@@ -95,9 +97,11 @@ def leaderboard(request):
 
 @api_view(["GET"])
 @permission_classes([AllowAny])
-def chat(request):
+def chat(request, username):
+    print(username)
     return render(request, "chat.html", {
-
+        "friends": Friend.objects.filter(friend=request.user, is_accepted=True),
+        "username": username
     })
 
 @api_view(["GET"])

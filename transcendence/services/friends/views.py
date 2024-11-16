@@ -20,6 +20,35 @@ def friends(request):
     else:
         return error_response('Friend request already sent', 'Friend request already sent', 'error', 400)
 
+@api_view(['GET'])
+@permission_classes([AllowAny])
+def get_friends(request, username):
+    friend = {}
+    friend = Friend.objects.filter(user=request.user, friend__username=username, is_accepted=True).first()
+    if friend is None:
+        friend = Friend.objects.filter(friend=request.user, user__username=username, is_accepted=True).first()
+        if friend is not None:
+            friend = {
+                "id": friend.user.id,
+                "username": friend.user.username,
+                "email": friend.user.email,
+                "last_activity": friend.user.last_activity,
+                "image": friend.user.image
+            }
+        else:
+            return error_response('Friend not found', 'Friend not found', 'error', 404)
+    else:
+        friend = {
+            "id": friend.friend.id,
+            "username": friend.friend.username,
+            "email": friend.friend.email,
+            "last_activity": friend.friend.last_activity,
+            "image": friend.friend.image
+        }
+    return success_response('Friends found', "Successfully found friends", 'success', 200, {
+        "friend": friend
+    }, None, False)
+
 @api_view(['PUT'])
 @permission_classes([AllowAny])
 def accept_friend(request, friend_id):
