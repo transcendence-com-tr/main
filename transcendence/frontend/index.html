@@ -8,7 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
-    <link href="assets/css/style.css?v=490" rel="stylesheet"/>
+    <link href="assets/css/style.css?v=500" rel="stylesheet"/>
 </head>
 <body>
 <div class="row d-flex justify-content-center m-2 align-items-center p-2" id="body">
@@ -30,10 +30,11 @@
         </div>
     </div>
 </div>
-<script src="assets/js/library/utils.js?v=490"></script>
-<script src="assets/js/library/request.js?v=490"></script>
-<script src="assets/js/library/router.js?v=490"></script>
-<script src="assets/js/library/socket.js?v=490"></script>
+<script src="config.js?v=500"></script>
+<script src="assets/js/library/utils.js?v=500"></script>
+<script src="assets/js/library/request.js?v=500"></script>
+<script src="assets/js/library/router.js?v=500"></script>
+<script src="assets/js/library/socket.js?v=500"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
@@ -49,6 +50,7 @@
     Router.add("#/game/classic", "game/classic.html", "Game Classic Page");
     Router.add("#/game/ai", "game/ai.html", "Game AI Page");
     Router.add("#/game/tournament", "game/tournament.html", "Game Tournament Page");
+    Router.add("#/chat", "chat.html", "Chat Page");
     Router.add("#/chat/<username>", "chat.html", "Chat Page");
     Router.add("#/leaderboard", "leaderboard.html", "Leaderboard Page");
     Router.add("#/logout", "logout.html", "Logout Page");

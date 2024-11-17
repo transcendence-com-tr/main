@@ -6,6 +6,7 @@ from django.conf import settings
 import json
 from transcendence.services.responses import socket_response
 from transcendence.services.models.user import User
+from transcendence.services.models.chat import Chat
 from django.utils import timezone
 
 class ChatConsumer(AsyncWebsocketConsumer):
@@ -25,10 +26,10 @@ class ChatConsumer(AsyncWebsocketConsumer):
                 raise Exception("Invalid room name")
             elif (user1_id == str(user.id)):
                 self.scope["room_user"] = user
-                self.scope["room_friend"] = sync_to_async(User.objects.get)(id=user2_id)
+                self.scope["room_friend"] = await sync_to_async(User.objects.get)(id=user2_id)
             elif (user2_id == str(user.id)):
                 self.scope["room_user"] = user
-                self.scope["room_friend"] = sync_to_async(User.objects.get)(id=user1_id)
+                self.scope["room_friend"] = await sync_to_async(User.objects.get)(id=user1_id)
             else:
                 raise Exception("Invalid room name")
 
@@ -57,16 +58,19 @@ class ChatConsumer(AsyncWebsocketConsumer):
                 room_name,
                 {
                     'type': 'chat_message',
-                    'message': message
+                    'message': message,
+                    'user': {
+                        'id': self.scope['user'].id,
+                        'username': self.scope['user'].username,
+                        'image': self.scope['user'].image
+                    }
                 }
             )
+            await sync_to_async(Chat.objects.create)(user=self.scope['room_user'], friend=self.scope['room_friend'],
+                                                     message=message)
     async def chat_message(self, event):
         message = event['message']
         await self.send(socket_response('message', {
             'message': message,
-            'user': {
-                'username': self.scope['user'].username,
-                'image': self.scope['user'].image
-            }
+            'user': event['user']
         }))
-

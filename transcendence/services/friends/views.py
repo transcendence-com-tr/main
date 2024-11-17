@@ -36,7 +36,7 @@ def get_friends(request, username):
                 "image": friend.user.image
             }
         else:
-            return error_response('Friend not found', 'Friend not found', 'error', 404)
+            return error_response('Friend not found', 'Friend not found', 'error', 404, None, None, False)
     else:
         friend = {
             "id": friend.friend.id,

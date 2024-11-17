@@ -97,6 +97,7 @@ html
 .chat-message-sender
 {
     margin-right: 10px;
+    margin-left: 10px;
     text-align: center;
     color: #a0a0b9;
 }

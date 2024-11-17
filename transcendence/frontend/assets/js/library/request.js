@@ -1,4 +1,3 @@
-let apiURL =  window.location.origin + "/api";
 let token = localStorage.getItem("token") ?? "";
 
 function request(method, action, formData = null) {
@@ -19,7 +18,7 @@ function request(method, action, formData = null) {
 
     return new Promise((resolve, reject) => {
         const xhr = new XMLHttpRequest();
-        xhr.open(method, apiURL + "/" + action, true);
+        xhr.open(method, CONFIG.apiUrl + "/" + action, true);
         xhr.setRequestHeader('Authorization', 'Bearer ' + token);
 
         // Only set 'Content-Type' if the data is not a FormData object
@@ -106,7 +105,7 @@ async function del(action, data = null)
 
 async function frontend(action, callback)
 {
-    return await fetch(apiURL + "/frontend/" + action, {
+    return await fetch(CONFIG.apiUrl + "/frontend/" + action, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',

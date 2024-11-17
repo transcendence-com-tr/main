@@ -5,6 +5,8 @@ from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import AllowAny
 
 from transcendence.services.models.friend import Friend
+from transcendence.services.models.chat import Chat
+from django.db.models import Q
 
 
 @api_view(['GET'])
@@ -98,10 +100,18 @@ def leaderboard(request):
 @api_view(["GET"])
 @permission_classes([AllowAny])
 def chat(request, username):
-    print(username)
+    messages = Chat.objects.filter(Q(user=request.user, friend__username=username) | Q(user__username=username, friend=request.user)).order_by('created_at')
     return render(request, "chat.html", {
-        "friends": Friend.objects.filter(friend=request.user, is_accepted=True),
+        "friends": Friend.objects.filter(Q(friend=request.user) | Q(user=request.user), is_accepted=True),
+        "messages":messages,
         "username": username
+    })
+
+@api_view(["GET"])
+@permission_classes([AllowAny])
+def chats(request):
+    return render(request, "chats.html", {
+        "friends": Friend.objects.filter(Q(friend=request.user) | Q(user=request.user), is_accepted=True)
     })
 
 @api_view(["GET"])

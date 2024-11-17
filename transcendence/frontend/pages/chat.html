@@ -41,36 +41,24 @@
                 <h5 class="text-color-orange">Chat</h5>
                 <div class="profile-card game-card neon p-3 mb-4">
                     <div class="chat-box overflow-auto ps-0 mb-2">
-                        <div class="chat-message message-right">
-                            <div class="chat-message-sender">
-                                <img src="{{ user.image }}" alt="Player 1"
-                                     height="50" width="50" class="object-fit-cover">
-                                <p class="mb-0 me-2">akaniber</p>
+                       {% for message in messages %}
+                            <div class="chat-message {% if message.user == request.user %}message-right{% endif %}">
+                                <div class="chat-message-sender">
+                                    <img src="{% if message.user == request.user %}{{ request.user.image }}{% else %}{{ message.user.image }}{% endif %}"
+                                         alt="User Image" height="50" width="50" class="object-fit-cover">
+                                    <p class="mb-0">
+                                        {% if message.user == request.user %}
+                                            {{ request.user.username }}
+                                        {% else %}
+                                            {{ message.user.username }}
+                                        {% endif %}
+                                    </p>
+                                </div>
+                                <div class="chat-message-content neon">
+                                    <p class="mb-0">{{ message.message }}</p>
+                                </div>
                             </div>
-                            <div class="chat-message-content neon">
-                                <p class="mb-0">Hello, how are you?</p>
-                            </div>
-                        </div>
-                        <div class="chat-message">
-                            <div class="chat-message-sender">
-                                <img src="{{ user.image }}" alt="Player 1"
-                                     height="50" width="50" class="object-fit-cover">
-                                <p class="mb-0">aaybaz</p>
-                            </div>
-                            <div class="chat-message-content neon">
-                                <p class="mb-0">I'm fine, thank you.</p>
-                            </div>
-                        </div>
-                        <div class="chat-message message-right">
-                            <div class="chat-message-sender">
-                                <img src="{{ user.image }}" alt="Player 1"
-                                     height="50" width="50" class="object-fit-cover">
-                                <p class="mb-0 me-2">akaniber</p>
-                            </div>
-                            <div class="chat-message-content neon">
-                                <p class="mb-0">By by.</p>
-                            </div>
-                        </div>
+                        {% endfor %}
                     </div>
                     <div class="input-group mb-3 neon">
                         <input type="text" class="form-control" name="message" id="message" placeholder="Type a message"/>

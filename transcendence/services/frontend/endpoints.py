@@ -19,6 +19,7 @@ urlpatterns = [
     path('logout/', views.logout, name='logout'),
     path('leaderboard/', views.leaderboard, name='leaderboard'),
     path('chat/<str:username>/', views.chat, name='chat'),
+    path('chat/', views.chats, name='chats'),
     path('settings/', views.settings, name='settings'),
     path('help/', views.help, name='help'),
     path("2fa/", views.two_factor_auth, name="two_factor_auth"),

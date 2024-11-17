@@ -1,7 +1,7 @@
 class SocketConnection {
     constructor(connection = "")
     {
-        this.socketUrl =  "ws://" + window.location.host + "/ws/" + (connection ? connection + "/" : "");
+        this.socketUrl =  CONFIG.socketUrl + "/" + (connection ? connection + "/" : "");
         this.connection = this.socketUrl + "?token=" + localStorage.getItem("token");
         this.socket = new WebSocket(this.connection);
         

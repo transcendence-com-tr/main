@@ -6,8 +6,8 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'transcendence.settings')
 django.setup()
 
 class Chat(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='user')
-    friend = models.ForeignKey(User, on_delete=models.CASCADE, related_name='friend')
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='chat_user')
+    friend = models.ForeignKey(User, on_delete=models.CASCADE, related_name='chat_friend')
     message = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -15,4 +15,3 @@ class Chat(models.Model):
     class Meta:
         db_table = 'chat'
         ordering = ['created_at']
-        unique_together = ['user', 'friend']

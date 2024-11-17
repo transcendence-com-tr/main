@@ -107,7 +107,7 @@ def login_42_callback(request):
         'client_id': settings.CLIENT_ID42,
         'client_secret': settings.CLIENT_SECRET42,
         'code': code,
-        'redirect_uri': 'http://localhost/'
+        'redirect_uri': settings.REDIRECT_URI42
     })
     data = response.json()
     access_token = data.get('access_token')

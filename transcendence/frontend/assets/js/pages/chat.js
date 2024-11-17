@@ -2,9 +2,8 @@
 {
     let me = await get("auth/me");
     let friend = await get(`friends/${Router.params["username"]}`);
+    let chatBox = document.getElementsByClassName("chat-box")[0];
 
-    console.log(me);
-    console.log(friend);
     let roomName = me.payload.user.id > friend.payload.friend.id ? `${me.payload.user.id}_${friend.payload.friend.id}` : `${friend.payload.friend.id}_${me.payload.user.id}`;
     let chat = new SocketConnection("chat/" + roomName);
 
@@ -23,13 +22,14 @@
         let html = `<div class="chat-message ${turn}">
             <div class="chat-message-sender">
                 <img src="${data.user.image}" alt="Player 1" height="50" width="50" class="object-fit-cover">
-                <p class="mb-0">${data.user.username}</p>
+                <p class="mb-0 ${marginEnd}">${data.user.username}</p>
             </div>
             <div class="chat-message-content neon">
-                <p class="mb-0 ${marginEnd}">${data.message}</p>
+                <p class="mb-0">${data.message}</p>
             </div>
         </div>`;
-        document.getElementsByClassName("chat-box")[0].innerHTML += html;
-
+        chatBox.innerHTML += html;
+        chatBox.scrollTop = chatBox.scrollHeight;
     });
+    chatBox.scrollTop = chatBox.scrollHeight;
 })();

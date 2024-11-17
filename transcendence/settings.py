@@ -175,6 +175,7 @@ IMAGE_ROOT = os.path.join(BASE_DIR, 'transcendence/frontend/assets/images')
 CLIENT_ID42 = os.getenv('CLIENT_ID')
 CLIENT_SECRET42 = os.getenv('CLIENT_SECRET')
 CONNECT_LINK42 = os.getenv('CONNECT_LINK')
+REDIRECT_URI42 = os.getenv('REDIRECT_URI')
 
 
 CHANNEL_LAYERS = {
