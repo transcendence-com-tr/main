@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+  db:
+    image: postgres:16.4
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: ***
+      POSTGRES_PASSWORD: ***
+      POSTGRES_DB: test1
+    ports:
+      - "5432:5432"
+
+  web:
+    build: .
+    command: bash -c "python manage.py makemigrations services && python manage.py migrate services && daphne transcendence.asgi:application -p 1453 -b 0.0.0.0"
+    volumes:
+      - .:/app
+    ports:
+      - "1453:1453"
+    depends_on:
+      - db
+    environment:
+      DATABASE_URL: postgres://***:****@db/test1
+
+volumes:
+  postgres_data:
