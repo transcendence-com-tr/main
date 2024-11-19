@@ -5,7 +5,7 @@
     let chatBox = document.getElementsByClassName("chat-box")[0];
 
     let roomName = me.payload.user.id > friend.payload.friend.id ? `${me.payload.user.id}_${friend.payload.friend.id}` : `${friend.payload.friend.id}_${me.payload.user.id}`;
-    let chat = new SocketConnection("chat/" + roomName);
+    let chat = socket("chat/" + roomName);
 
     document.getElementById("message").addEventListener("keypress", function (e)
     {

@@ -1,6 +1,7 @@
 let intervals = [];
 let timeouts = [];
 let events = [];
+let sockets = [];
 function interval(func, timeout, autoClear = true)
 {
     let _interval = setInterval(func, timeout);
@@ -33,6 +34,21 @@ function event(element, _event, func, autoClear = true) {
     }
 }
 
+function socket(connection = "")
+{
+    let socket = new SocketConnection(connection);
+    sockets.push(socket);
+    return socket;
+}
+
+function clearSockets()
+{
+    sockets.forEach(socket => {
+        socket.disconnect();
+    });
+    sockets = [];
+}
+
 function clearIntervals()
 {
     intervals.forEach(interval => {
@@ -62,6 +78,7 @@ function clearAllProcesses()
     clearIntervals();
     clearTimeouts();
     clearEvents();
+    clearSockets();
 }
 
 function notification(state, title, message, closeable = true)
